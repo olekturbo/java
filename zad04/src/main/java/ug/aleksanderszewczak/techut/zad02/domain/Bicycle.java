@@ -1,11 +1,14 @@
 package ug.aleksanderszewczak.techut.zad02.domain;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
 
 @Entity
+@NamedQueries({
+    @NamedQuery(name = "bicycle.all", query = "Select  from Bicycle b"),
+})
 public class Bicycle {
 	
 	private long id;
@@ -57,6 +60,13 @@ public class Bicycle {
 		this.producer = producer;
 		this.license = license;
 		this.cyclists = cyclists;
+	}
+	
+	public Bicycle(double price, Date productionDate, boolean isReserved) {
+		super();
+		this.price = price;
+		this.productionDate = productionDate;
+		this.isReserved = isReserved;
 	}
 	public Bicycle() {
 		super();
