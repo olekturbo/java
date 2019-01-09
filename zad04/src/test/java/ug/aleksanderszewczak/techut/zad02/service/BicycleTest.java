@@ -19,16 +19,18 @@ import ug.aleksanderszewczak.techut.zad02.domain.Bicycle;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:/beans.xml"})
-@TransactionConfiguration(transactionManager = "txManager", defaultRollback = false)
+@TransactionConfiguration(transactionManager = "txManager", defaultRollback = true)
 @Transactional
 public class BicycleTest {
 
     @Autowired
     BicycleManager bm;
     
+    private static final double DELTA = 1e-15;
+    
 
     @Test
-    public void addPlaneCheck() {
+    public void addBicycleCheck() {
     	 String sDate = "01-01-2015";
     		Date dDate = null;
 			try {
@@ -47,7 +49,7 @@ public class BicycleTest {
     }
 
     @Test
-    public void getAllPlanesCheck() {
+    public void getAllBicyclesCheck() {
     	String sDate = "01-01-2015";
 		Date dDate = null;
 		try {
@@ -70,7 +72,7 @@ public class BicycleTest {
     }
 
     @Test
-    public void findPlaneByIdCheck() {
+    public void findBicycleByIdCheck() {
     	String sDate = "01-01-2015";
 		Date dDate = null;
 		try {
@@ -90,7 +92,7 @@ public class BicycleTest {
     }
 
     @Test
-    public void deletePlaneCheck() {
+    public void deleteBicycleCheck() {
     	String sDate = "01-01-2015";
 		Date dDate = null;
 		try {
@@ -113,7 +115,7 @@ public class BicycleTest {
 
     @SuppressWarnings("deprecation")
 	@Test
-    public void updatePlaneCheck() {
+    public void updateBicycleCheck() {
     	String sDate = "01-01-2015";
 		Date dDate = null;
 		try {
@@ -131,6 +133,6 @@ public class BicycleTest {
 
         bm.updateBicycle(b);
 
-        assertEquals(b.getPrice(), newPrice);
+        assertEquals(b.getPrice(), newPrice, DELTA);
     }
 }

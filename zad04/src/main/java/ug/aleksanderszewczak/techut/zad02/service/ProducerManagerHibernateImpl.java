@@ -4,10 +4,14 @@ import java.util.List;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import ug.aleksanderszewczak.techut.zad02.domain.Bicycle;
 import ug.aleksanderszewczak.techut.zad02.domain.Producer;
 
+@Component
+@Transactional
 public class ProducerManagerHibernateImpl implements ProducerManager {
 
 	@Autowired

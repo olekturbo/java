@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "bicycle.all", query = "Select  from Bicycle b"),
+    @NamedQuery(name = "bicycles.all", query = "Select b from Bicycle b"),
 })
 public class Bicycle {
 	
@@ -97,7 +97,7 @@ public class Bicycle {
         return cyclists;
     }
 
-    public void setPilots(List<Cyclist> cyclists) {
+    public void setCyclists(List<Cyclist> cyclists) {
         this.cyclists = cyclists;
     }
 }
